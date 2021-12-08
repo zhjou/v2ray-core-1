@@ -404,7 +404,9 @@ func (w *UDPWriter) Write(b []byte) (int, error) {
 }
 
 func ClientHandshake(request *protocol.RequestHeader, reader io.Reader, writer io.Writer) (*protocol.RequestHeader, error) {
+	
         authByte := byte(authNotRequired)
+	
 	if request.User != nil {
 		authByte = byte(authPassword)
 	}
